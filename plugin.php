@@ -53,6 +53,11 @@ add_action( 'customize_register', 'webfonts_api_example_add_customizer_controls'
  * @return void
  */
 function webfonts_api_example_register_font_family() {
+	
+	if ( ! function_exists( 'wp_register_webfonts' ) ) {
+		return;
+	}
+	
 	$font_family = get_theme_mod( 'webfonts_api_example_font_family', '' );
 	if ( ! $font_family ) {
 		return;
